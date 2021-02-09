@@ -1,0 +1,26 @@
+{
+  "name": "fusion-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thoumar/fusion-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thoumar/fusion-api/issues"
+  },
+  "homepage": "https://github.com/Thoumar/fusion-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0",
+    "graphql-type-json": "^0.3.2",
+    "node-fetch": "^2.6.1"
+  }
+}

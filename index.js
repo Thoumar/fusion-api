@@ -1,27 +1,28 @@
 var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
-const { GraphQLJSON } = require('graphql-type-json');
+const { GraphQLJSONObject } = require('graphql-type-json');
 
 var schema = buildSchema(`
-    scalar JSON 
+    scalar JSON
+    scalar JSONObject
 
     type AbtastyProvider {
-        account(accountId: String!): JSON,
-        tests(accountId: String!): JSON,
-        test(accountId: String!): JSON,
+        account(accountId: String!): JSONObject,
+        tests(accountId: String!): JSONObject,
+        test(accountId: String!): JSONObject,
     }
     
     type TrelloProvider {
-        board(boardId: String!): JSON,
-        cards(boardId: String!): JSON,
-        card(cardId: String!): JSON,
-        members(boardId: String!): JSON,
-        member(memberId: String!): JSON,
+        board(boardId: String!): JSONObject,
+        cards(boardId: String!): JSONObject,
+        card(cardId: String!): JSONObject,
+        members(boardId: String!): JSONObject,
+        member(memberId: String!): JSONObject,
     }
     
     type BrogglProvider {
-        entries(clientId: String!): JSON,
+        entries(clientId: String!): JSONObject,
     }
 
     type Query {
@@ -37,6 +38,7 @@ const brogglProvider = require('./providers/broggl');
 
 var root = {
     JSON: GraphQLJSON,
+    JSONObject: GraphQLJSONObject,
     abtasty: () => {
         return {
             tests: ({ accountId }) => abtastyProvider.getTests(accountId),      // Implemented
