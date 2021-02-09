@@ -27,7 +27,7 @@ const getTests = (accountId) => {
 
 const getTest = (accountId, testId) => {
     return new Promise(async (resolve, reject) => {
-        const response = await fetch(`${baseUrl}/todos`);
+        const response = await fetch(`${baseUrl}/core/accounts/${accountId}/tests/${testId}`, { headers });
         const jsonResponse = await response.json();
         return resolve(jsonResponse);
     });

@@ -9,7 +9,7 @@ var schema = buildSchema(`
     type AbtastyProvider {
         account(accountId: String!): JSON,
         tests(accountId: String!): JSON,
-        test(accountId: Int!): JSON,
+        test(accountId: String!): JSON,
     }
     
     type TrelloProvider {
@@ -41,7 +41,7 @@ var root = {
         return {
             tests: ({ accountId }) => abtastyProvider.getTests(accountId),      // Implemented
             account: ({ accountId }) => abtastyProvider.getAccount(accountId),  // Todo: 403 Not permittted
-            test: () => abtastyProvider.getTest(accountId)                      // Implemented
+            test: () => abtastyProvider.getTest(accountId)                      // Todo: to test
         }
     },
     trello: () => {
